@@ -3,5 +3,12 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8010/member/
+GET http://localhost:8010/member/count
+Accept: application/json
+
+
+
+###
+
+GET http://localhost:8010/member/send-code
 Accept: application/json
