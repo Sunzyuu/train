@@ -3,12 +3,23 @@ server:
   servlet:
     context-path: /member
 
-#
-#spring:
-#  datasource:
-#    url: jdbc:mysql://localhost:3307/train?characterEncoding=UTF-8&autoReconnect=true&useSSL=false&serverTimezone=Asia/Shanghai&allowMultiQueries=true
-#    username: root
-#    password: root
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    resources:
-#      add-mappings: true
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3307/train?characterEncoding=UTF-8&autoReconnect=true&useSSL=false&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    resources:
+      add-mappings: true
+
+
+
+logging:
+  file:
+    path: ./logs/member
+  level:
+    com:
+      github:
+        train:
+          mapper: trace
