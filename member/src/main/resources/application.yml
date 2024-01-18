@@ -22,7 +22,8 @@ logging:
     com:
       github:
         train:
-          mapper: trace
+          member:
+            mapper: trace
 
 
 mybatis:
