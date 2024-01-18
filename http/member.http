@@ -3,12 +3,17 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8010/member/count
-Accept: application/json
+POST http://localhost:8010/member/register
+Content-Type: application/x-www-form-urlencoded
 
+mobile=13233323333
 
 
 ###
 
-GET http://localhost:8010/member/send-code
+POST http://localhost:8010/member/send-code
 Accept: application/json
+
+{
+  "mobile": "13000000001"
+}

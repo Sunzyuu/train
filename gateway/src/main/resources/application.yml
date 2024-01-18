@@ -13,7 +13,7 @@ spring:
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins: "*"
+            allowedOriginPatterns: "*"
             allowedMethods: # 允许的跨域ajax的请求方式
               - "GET"
               - "POST"
