@@ -23,3 +23,7 @@ logging:
       github:
         train:
           mapper: trace
+
+
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
