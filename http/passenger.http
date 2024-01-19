@@ -8,14 +8,30 @@ Content-Type: application/x-www-form-urlencoded
 
 mobile=13233323333
 
-
 ###
-
-POST http://localhost:8011/member/passenger/save
+POST http://localhost:8010/member/login
 Content-Type: application/json
 
 {
-  "memberId": "1",
+    "mobile": "12222222211",
+    "code" : "8888"
+}
+
+> {%
+ client.log(JSON.stringify(response.body));
+ client.log(JSON.stringify(response.body.content.token));
+ client.global.set("token", response.body.content.token)
+ %}
+
+
+###
+
+POST http://localhost:8010/member/passenger/save
+Content-Type: application/json
+token: {{token}}
+
+{
+  "memberId": "2",
   "name": "test",
   "idCard" : "12212",
   "type" : "1"

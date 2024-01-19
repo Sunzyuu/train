@@ -57,9 +57,9 @@ public class JwtUtil {
     }
 
     public static void main(String[] args) {
-        createToken(1L, "123");
+        // createToken(1L, "123");
 
-        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2NzY4OTk4MjcsIm1vYmlsZSI6IjEyMyIsImlkIjoxLCJleHAiOjE2NzY4OTk4MzcsImlhdCI6MTY3Njg5OTgyN30.JbFfdeNHhxKhAeag63kifw9pgYhnNXISJM5bL6hM8eU";
+        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE3MDU2NDg0MjgsIm1vYmlsZSI6IjEyMjIyMjIyMjExIiwiaWQiOjE3NDgyNDA1NTA3MDU4OTMzNzYsImV4cCI6MTcwNTczNDgyOCwiaWF0IjoxNzA1NjQ4NDI4fQ.gaTjX1ItmtG9iPB37fdb9omDq_7oqsGJMibKyEgKEhE";
         validate(token);
 
         getJSONObject(token);

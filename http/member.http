@@ -12,8 +12,8 @@ mobile=13233323333
 ###
 
 POST http://localhost:8010/member/send-code
-Accept: application/json
+Content-Type: application/json
 
 {
-  "mobile": "13000000001"
+  "mobile": "12222222211"
 }
