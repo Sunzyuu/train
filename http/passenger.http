@@ -1,0 +1,22 @@
+GET http://localhost:8011/member/
+Accept: application/json
+
+###
+
+POST http://localhost:8010/member/register
+Content-Type: application/x-www-form-urlencoded
+
+mobile=13233323333
+
+
+###
+
+POST http://localhost:8011/member/passenger/save
+Content-Type: application/json
+
+{
+  "memberId": "1",
+  "name": "test",
+  "idCard" : "12212",
+  "type" : "1"
+}
