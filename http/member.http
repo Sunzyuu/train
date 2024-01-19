@@ -11,7 +11,7 @@ mobile=13233323333
 
 ###
 
-POST http://localhost:8010/member/send-code
+POST http://localhost:8010/member/member/send-code
 Content-Type: application/json
 
 {

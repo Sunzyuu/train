@@ -1,6 +1,8 @@
 package com.github.train.member.service;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.swing.clipboard.ImageSelection;
+import com.github.train.common.context.LoginMemberContext;
 import com.github.train.common.utils.SnowUtil;
 import com.github.train.member.domain.Passenger;
 import com.github.train.member.mapper.PassengerMapper;
@@ -21,7 +23,8 @@ public class PassengerService {
 
     public void save(PassengerSaveReq passengerSaveReq) {
         Passenger passenger = BeanUtil.copyProperties(passengerSaveReq, Passenger.class);
-
+        Long memberId = LoginMemberContext.getId();
+        passenger.setMemberId(memberId);
         passenger.setId(SnowUtil.getSnowflakeNextId());
         passenger.setCreateTime(new Date());
         passenger.setUpdateTime(new Date());
