@@ -1,6 +1,7 @@
 package com.github.train.member.service;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.date.DateTime;
 import cn.hutool.core.util.ObjectUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -29,14 +30,24 @@ public class PassengerService {
     private PassengerMapper passengerMapper;
 
 
-    public void save(PassengerSaveReq passengerSaveReq) {
-        Passenger passenger = BeanUtil.copyProperties(passengerSaveReq, Passenger.class);
-        Long memberId = LoginMemberContext.getId();
-        passenger.setMemberId(memberId);
-        passenger.setId(SnowUtil.getSnowflakeNextId());
-        passenger.setCreateTime(new Date());
-        passenger.setUpdateTime(new Date());
-        passengerMapper.insert(passenger);
+    public void save(PassengerSaveReq req) {
+        Passenger passenger = BeanUtil.copyProperties(req, Passenger.class);
+        DateTime now = DateTime.now();
+        if (ObjectUtil.isNull(passenger.getId())) {
+            passenger.setMemberId(LoginMemberContext.getId());
+            passenger.setId(SnowUtil.getSnowflakeNextId());
+            passenger.setCreateTime(now);
+            passenger.setUpdateTime(now);
+            passengerMapper.insert(passenger);
+        } else {
+            passenger.setUpdateTime(now);
+            passengerMapper.updateByPrimaryKey(passenger);
+        }
+    }
+
+
+    public void delete(Long id) {
+        passengerMapper.deleteByPrimaryKey(id);
     }
 
     public PageResp<PassengerQueryResp> queryList(PassengerQueryReq req) {
